@@ -1,6 +1,6 @@
 <?php
 
-//namespace app\models\my;
+namespace app\models\my;
 
 class Payment {
 
