@@ -7,10 +7,10 @@ final class PaymentTest extends TestCase {
 
     public function testPayment() {
 
-        $pay = new Payment();
+        $payment = new Payment();
         $cashTendered=10;
-        $pay->Payment($cashTendered);
-        $this->assertEquals($cashTendered, $pay->getAmount());
+        $payment->Payment($cashTendered);
+        $this->assertEquals($cashTendered, $payment->getAmount());
     }
 
 }
