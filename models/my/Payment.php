@@ -4,10 +4,11 @@ namespace app\models\my;
 
 class Payment {
 
-    private $amount = 0;
+    private $amount;
 
     public function Payment($cashTendered) {
-        $this->$amount = $cashTendered;
+
+        $this->amount = $cashTendered;
     }
 
     public function getAmount() {

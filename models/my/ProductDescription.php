@@ -4,26 +4,26 @@ namespace app\models\my;
 
 class ProductDescription {
 
-    private $id = 0;
-    private $price = 0;
-    private $description = '';
+    private $id;
+    private $price;
+    private $description;
 
-    public function ProductDescription($_id, $_price, $_description) {
-        $this->$id=$_id;
-        $this->$price=$_price;
-        $this->$description=$_description;
+    public function ProductDescription($id, $price, $description) {
+        $this->id = $id;
+        $this->price = $price;
+        $this->description = $description;
     }
 
     public function getId() {
-        return $this->$id;
+        return $this->id;
     }
 
     public function getPrice() {
-        return $this->$price;
+        return $this->price;
     }
 
     public function getDescription() {
-        return $this->$discription;
+        return $this->description;
     }
 
 }
