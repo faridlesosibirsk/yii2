@@ -6,14 +6,21 @@ use app\models\my\ProductDescription;
 
 final class ProductCatalogTest extends TestCase {
 
-    public function testProductCatalog() {
+    private $desc1;
+    private $desc2;
 
-        $productCatalog = new ProductCatalog();
+    public function testProductCatalog() {
         $id1 = 100;
+        $id2 = 200;
         $price = 3;
-        $desc = new ProductDescription();
-        $desc->ProductDescription($id1, $price, 'товар 1');
-        $this->assertEquals($productCatalog->getProductDescription($id1), $desc);
+        $this->desc1 = new ProductDescription();
+        $this->desc1->ProductDescription($id1, $price, 'товар 1');
+        $this->assertNotNull($this->desc1);
+        $this->desc2 = new ProductCatalog();
+        $this->desc2->productCatalog();
+        $this->assertNotNull($this->desc2->getProductDescription($id1));
+        $this->assertNotEquals($this->desc1, $this->desc2->getProductDescription($id2));
+        $this->assertEquals($this->desc1, $this->desc2->getProductDescription($id1));
     }
 
 }

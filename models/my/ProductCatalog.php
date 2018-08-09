@@ -3,13 +3,14 @@
 namespace app\models\my;
 
 use app\models\my\ProductDescription;
+// TODO //use yii\db\ActiveRecord;
 
-class ProductCatalog {
+class ProductCatalog {// TODO //extends ActiveRecord
 
     private $descriptions;
 
     public function __constructor() {
-        $this->descriptions = new HashMap('integer', 'ProductDescription');
+        $this->descriptions = array();
         $this->productCatalog();
     }
 
@@ -19,20 +20,15 @@ class ProductCatalog {
         $price = 3;
         $desc1 = new ProductDescription();
         $desc1->ProductDescription($id1, $price, 'товар 1');
-        $this->descriptions->set($id1, $desc1);
+        $this->descriptions = array($id1 => $desc1);
         $desc2 = new ProductDescription();
-        $desc2->ProductDescription($id2, $price, 'товар 1');
-        $this->descriptions->set($id2, $desc2);
+        $desc2->ProductDescription($id2, $price, 'товар 2');
+        $this->descriptions=$this->descriptions + array($id2 => $desc2);
+        
     }
 
     public function getProductDescription($id) {
-        return $this->descriptions->each(function($value, $key, $thisMap) {
-                    if ($value == $id) {
-                        return $key;
-                    } else {
-                        return $nil = 0;
-                    }
-                });
+        return $this->descriptions[$id];
     }
 
 }
