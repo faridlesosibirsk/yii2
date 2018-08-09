@@ -10,14 +10,18 @@ class ProductCatalog {
 
     public function __constructor() {
         $this->descriptions= new HashMap('integer', 'ProductDescription');
+        $this->productCatalog();
     }
 
     public function productCatalog() {
-        
+       $id1=100;
+       $id2=200;
+       $price=3;
+       
     }
 
-    public function getProductDescription() {
-        
+    public function getProductDescription($id) {
+        return $this->descriptions->index($id);
     }
 
 }
