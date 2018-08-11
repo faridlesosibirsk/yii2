@@ -8,12 +8,12 @@ class SalesLineItem {
     private $description;
 
     public function SaleLineItem($desc, $quantity) {
-        $this->description=$desc;
-        $this->quantity=$quantity;
+        $this->description = $desc;
+        $this->quantity = $quantity;
     }
 
     public function getSubTotal() {
-        return ($this->description->getPrice())*$this->quantity;
+        return ($this->description->getPrice()) * $this->quantity;
     }
 
 }

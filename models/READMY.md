@@ -1,1 +1,1 @@
-./vendor/bin/phpunit models/my/
+./phpunit ../../models/my/tests/

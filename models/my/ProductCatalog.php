@@ -3,6 +3,7 @@
 namespace app\models\my;
 
 use app\models\my\ProductDescription;
+
 // TODO //use yii\db\ActiveRecord;
 
 class ProductCatalog {// TODO //extends ActiveRecord
@@ -23,8 +24,7 @@ class ProductCatalog {// TODO //extends ActiveRecord
         $this->descriptions = array($id1 => $desc1);
         $desc2 = new ProductDescription();
         $desc2->ProductDescription($id2, $price, 'товар 2');
-        $this->descriptions=$this->descriptions + array($id2 => $desc2);
-        
+        $this->descriptions = $this->descriptions + array($id2 => $desc2);
     }
 
     public function getProductDescription($id) {

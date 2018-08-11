@@ -6,6 +6,8 @@ use app\models\my\SalesLineItem;
 use app\models\my\Payment;
 use app\models\my\ProductDescription;
 
+require_once '../../models/my/Payment.php';
+
 class Sale {
 
     private $lineItems;
@@ -14,17 +16,17 @@ class Sale {
     private $payment;
 
     public function __constructor() {
-        $this->lineItem=array();
-        $this->complete=false;
-        $this->payment=new Payment();
+        $this->lineItems = array();
+        $this->complete = false;
+        //$this->payment = new Payment();
     }
 
     public function getBalance() {
-        return $this->payment->getAmount()-$this->getTotal();
+        return $this->payment->getAmount() - $this->getTotal();
     }
 
     public function becomeComplete() {
-        $this->complete=true;
+        $this->complete = true;
     }
 
     public function isComplete() {
@@ -32,20 +34,23 @@ class Sale {
     }
 
     public function makeLineItem($desc, $quantity) {
-        $sileLineItem=new SalesLineItem();
-        $sileLineItem->sileLineItem($desc, $quantity);
-        $this->lineItem=$this->lineItem + array($sileLineItem);
+        $saleLineItem = new SalesLineItem();
+        $saleLineItem->sileLineItem($desc, $quantity);
+        $this->lineItems = $this->lineItems + array($saleLineItem);
     }
 
     public function getTotal() {
-        $total=0;
-        $subtotal=0;
-        //foreach
+        $total = 0;
+        $subtotal = 0;
+        /* foreach ($this->lineItems as $salesLineItems) {
+          $subTotal = $salesLineItems->getSubTotal();
+          $total = $total + $subTotal;
+          } */
         return $total;
     }
 
     public function makePayment($cachTendered) {
-        $this->payment= new Payment();
+        $this->payment = new Payment();
         $this->payment->Payment($cachTendered);
     }
 
