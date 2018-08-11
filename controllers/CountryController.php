@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use yii\web\Controller;
 use yii\data\Pagination;
-use app\models\my\Country;
+use app\models\Country;
 
 class CountryController extends Controller {
 
