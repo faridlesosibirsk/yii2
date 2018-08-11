@@ -41,11 +41,11 @@ class Sale {
 
     public function getTotal() {
         $total = 0;
-        $subtotal = 0;
-        /* foreach ($this->lineItems as $salesLineItems) {
-          $subTotal = $salesLineItems->getSubTotal();
-          $total = $total + $subTotal;
-          } */
+        $subTotal = 0;
+        for ($i = 1; $i <= count($this->lineItems); $i++) {
+            $subTotal = $this->lineItems[$i]->getSubTotal();
+            $total = $total + $subTotal;
+        }
         return $total;
     }
 

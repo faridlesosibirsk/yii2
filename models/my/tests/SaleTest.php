@@ -39,7 +39,8 @@ final class SaleTest extends TestCase {
         $saleLineItem->SaleLineItem($desc, $quantity);
         $lineItems = array();
         $lineItems = $lineItems + array($saleLineItem);
-        //$this->assertArrayHasKey(0, $lineItems);
+        $SubTotal=21;
+        $this->assertEquals($SubTotal, $lineItems[0]->getSubTotal());
     }
 
 }
