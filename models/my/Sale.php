@@ -15,7 +15,7 @@ class Sale {
     private $complete;
     private $payment;
 
-    public function __constructor() {
+    public function __construct() {
         $this->lineItems = array();
         $this->complete = false;
         //$this->payment = new Payment();
@@ -35,11 +35,11 @@ class Sale {
 
     public function makeLineItem($desc, $quantity) {
         $saleLineItem = new SalesLineItem();
-        $saleLineItem->sileLineItem($desc, $quantity);
+        $saleLineItem->SaleLineItem($desc, $quantity);
         $this->lineItems = $this->lineItems + array($saleLineItem);
     }
 
-    public function getTotal() {
+    public function getTotal() { 
         $total = 0;
         $subTotal = 0;
         for ($i = 1; $i <= count($this->lineItems); $i++) {
@@ -49,9 +49,9 @@ class Sale {
         return $total;
     }
 
-    public function makePayment($cachTendered) {
+    public function makePayment($cashTendered) {
         $this->payment = new Payment();
-        $this->payment->Payment($cachTendered);
+        $this->payment->Payment($cashTendered);
     }
 
 }

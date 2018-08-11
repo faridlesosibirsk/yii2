@@ -10,7 +10,7 @@ class ProductCatalog {// TODO //extends ActiveRecord
 
     private $descriptions;
 
-    public function __constructor() {
+    public function __construct() {
         $this->descriptions = array();
         $this->productCatalog();
     }
