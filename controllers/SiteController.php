@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\EntryForm;
+use app\models\PosForm;
 
 class SiteController extends Controller
 {
@@ -145,6 +146,23 @@ class SiteController extends Controller
         } else {
             // либо страница отображается первый раз, либо есть ошибка в данных
             return $this->render('entry', ['model' => $model]);
+        }
+    }
+    
+    public function actionPos()
+    {
+        $model = new PosForm();
+        //return $this->render('pos', ['model' => $model]);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // данные в $model удачно проверены
+
+            // делаем что-то полезное с $model ...
+ 
+            return $this->render('pos-confirm', ['model' => $model]);
+        } else {
+            // либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('pos', ['model' => $model]);
         }
     }
 
